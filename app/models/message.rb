@@ -1,4 +1,4 @@
 class Message < ApplicationRecord
   belongs_to :listing
-  #has_many :user
+  belongs_to :user
 end

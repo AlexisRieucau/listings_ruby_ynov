@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  get 'users/home' => 'users#home'
-  get 'users/login' => 'users#login'
-  delete 'users/login' => 'users#logout'
-  post 'users/login' => 'users#check'
+  get '/' => 'users#home'
+  get 'users/sign_in' => 'users#login'
+  delete 'users/sign_in' => 'users#logout'
+  post 'users/sign_in' => 'users#check'
   get 'listings' => 'listings#index'
   get 'listings/contact/:id' => 'listings#contact'
-  get 'listings/:id' => 'listings#show'
+  get 'listings/new' => 'listings#show'
+  post 'listings/new' => 'listings#create'
+  delete 'listings/new/:id' => 'listings#delete'
   post 'messages/:id' => 'messages#create'
   get 'messages' => 'messages#show'
   #devise_for :users

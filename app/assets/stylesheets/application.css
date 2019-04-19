@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+div.inline {float: left;}
+input.inline {float: left;}
+.clearBoth {clear: both;}
