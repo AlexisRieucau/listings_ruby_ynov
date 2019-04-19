@@ -1,0 +1,9 @@
+<% @listings.each do |listing| %>
+  <p>
+    <a href="/listings/<%= listing.id %>">
+      <%= listing.title %> (<%= listing.category.name %>)
+    </a>
+    <%= link_to('contact'.html_safe, "/listings/contact/#{listing.id}", 'data-popup' => true, :class => "button_class", :onclick => "windows.open(this.href,'contact', 'height=800, width=500'); return false") %><br>
+  </p>
+<% end %>
+<%= paginate @listings %>

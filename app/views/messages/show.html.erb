@@ -1,0 +1,6 @@
+<% @messages.each do |message| %>
+  <p>
+    <%= message.content %> (<%= message.listing.title %>)
+  </p>
+<% end %>
+<%= paginate @messages %>
