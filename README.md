@@ -22,3 +22,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+connexion en admin : admin@admin.com:admin
+connexion en user  : user@normal.com:user
