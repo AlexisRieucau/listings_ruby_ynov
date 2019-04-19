@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <title>TpRuby</title>
     <%= csrf_meta_tags %>
@@ -10,13 +10,13 @@
   </head>
 
   <body>
+    <div><%= flash[:info] %></div>
     <%= yield %>
     <% if notice %>
     <p class="alert alert-success"><%= notice %></p>
   <% end %>
   <% if alert %>
     <p class="alert alert-danger"><%= alert %></p>
-
     <ul class="nav">
       <li class="active"><a href="/ideas">Ideas</a></li>
     </ul>

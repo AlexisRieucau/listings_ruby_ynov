@@ -1,0 +1,4 @@
+<%= form_tag "/messages/#{@listing_msg.id}", method: "post" do %>
+  <input type="text" name="message"/>
+  <input type="submit" value="Send" />
+<% end %>
