@@ -26,4 +26,17 @@ class UsersController < ApplicationController
       redirect_to "/users/sign_in"
     end
   end
+
+  def signup
+    if @current_user
+      redirect_to "/"
+    end
+  end
+
+  def create
+    if params[:password] == params[:password_conf]
+      User.create email: params[:email], first_name: params[:first_name], last_name: params[:last_name], password: params[:password]
+      redirect_to "/users/sign_in"
+    end
+  end
 end

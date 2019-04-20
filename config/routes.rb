@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get 'users/sign_in' => 'users#login'
   delete 'users/sign_in' => 'users#logout'
   post 'users/sign_in' => 'users#check'
+  get 'users/sign_up' => 'users#signup'
+  post 'users/sign_up' => 'users#create'
   get 'listings' => 'listings#index'
   get 'listings/contact/:id' => 'listings#contact'
   get 'listings/new' => 'listings#show'

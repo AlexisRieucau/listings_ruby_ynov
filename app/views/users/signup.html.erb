@@ -1,0 +1,16 @@
+<h1>Inscription</h1>
+<a href="/">Retourner à l'accueil</a>
+<%= form_tag "/users/sign_up", method: "post" do %>
+  <label for="email">Email</label>
+  <input type="email" name="email" required/><br/>
+  <label for="first_name">First name</label>
+  <input type="text" name="first_name" required/><br/>
+  <label for="last_name">Last name</label>
+  <input type="text" name="last_name" required/><br/>
+  <label for="password">Password (6 characters minimum)</label>
+  <input type="password" name="password" minlength="6" required/><br/>
+  <label for="password_conf">Password confirmation</label>
+  <input type="password" name="password_conf" required/><br/>
+  <input type="submit" value="Sign up" />
+<% end %>
+<a href="/users/sign_in">Log in</a>
