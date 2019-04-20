@@ -17,6 +17,7 @@
       <div class="inline"><%= form_tag "/users/sign_in", method: :delete do %></div>
         <input class="inline" type="submit" value="Logout" />
       <% end %>
+      &nbsp;&nbsp;<a href="/account/contacts">Mon compte</a>
     <% else %>
       <a href="/users/sign_in">>Login</a>
     <% end %>

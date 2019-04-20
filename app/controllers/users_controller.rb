@@ -39,4 +39,32 @@ class UsersController < ApplicationController
       redirect_to "/users/sign_in"
     end
   end
+
+  def contacts
+    @msg = Message.where(user_ven_id: @current_user.id)
+  end
+
+  def messages
+    @msg = Message.where(user_ach_id: @current_user.id)
+  end
+
+  def profile
+  end
+
+  def update
+    @user = User.find(@current_user.id)
+    if @user.update first_name: params[:first_name], last_name: params[:last_name], email: params[:email]
+        redirect_to '/account/user'
+    end
+  end
+
+  def updatepwd
+    @user = User.find(@current_user.id)
+    if params[:password] == params[:password_conf]
+      if @user.update password: params[:password]
+        redirect_to '/account/user'
+      end
+    end
+  end
+
 end

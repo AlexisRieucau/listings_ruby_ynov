@@ -12,6 +12,11 @@ Rails.application.routes.draw do
   delete 'listings/new/:id' => 'listings#delete'
   post 'messages/:id' => 'messages#create'
   get 'messages' => 'messages#show'
+  get 'account/contacts' => 'users#contacts'
+  get 'account/messages' => 'users#messages'
+  get 'account/user' => 'users#profile'
+  patch 'account/user' => 'users#update'
+  patch 'account/user/pwd' => 'users#updatepwd'
   #devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   #root to: 'Applications#index'
