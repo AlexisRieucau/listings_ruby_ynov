@@ -17,3 +17,11 @@
 div.inline {float: left;}
 input.inline {float: left;}
 .clearBoth {clear: both;}
+
+input:invalid {
+    border: 1px solid red;
+}
+
+input:valid {
+    border: 1px solid black;
+}

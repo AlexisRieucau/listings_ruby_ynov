@@ -5,7 +5,7 @@ class ListingsController < ApplicationController
   end
 
   def contact
-    if !@current_user.try(:admin?)
+    if !@current_user
       flash[:error] = "Accès interdit"
       return redirect_to "/users/sign_in"
     end

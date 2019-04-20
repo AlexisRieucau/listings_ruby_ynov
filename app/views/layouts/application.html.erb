@@ -11,15 +11,17 @@
 
   <body>
 
-  <p><div class="inline"><b><a href="/">Listings</a></b> &nbsp; </div>
-  <% if @current_user %>
-    <div class="inline"><%= form_tag "/users/sign_in", method: :delete do %></div>
-      <input class="inline" type="submit" value="Logout" />
+  <p>
+    <div class="inline"><b><a href="/">Listings</a></b> &nbsp; </div>
+    <% if @current_user %>
+      <div class="inline"><%= form_tag "/users/sign_in", method: :delete do %></div>
+        <input class="inline" type="submit" value="Logout" />
+      <% end %>
+    <% else %>
+      <a href="/users/sign_in">>Login</a>
     <% end %>
-  <% else %>
-    <a href="/users/sign_in">>Login</a>
-  <% end %>
-  &nbsp; Space for language selector &nbsp; <a href="/listings/new">Create my listing</a></p>
+    &nbsp; Space for language selector &nbsp; <a href="/listings/new">Create my listing</a>
+  </p>
 
   <!--<div><%= flash[:info] %></div>-->
   <%= yield %>

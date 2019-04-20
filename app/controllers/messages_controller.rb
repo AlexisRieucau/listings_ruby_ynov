@@ -1,7 +1,8 @@
 class MessagesController < ApplicationController
   def create
-    if params[:message].present?
-      Message.create content: params[:message], user_ven_id: Listing.find(params[:id]).user_id, user_ach_id: @current_user.id, listing_id: params[:id]
+    listing = Listing.find(params[:id])
+    if params[:contenu].present?
+      Message.create! content: params[:contenu], user_ven_id: listing.user.id, user_ach_id: @current_user.id, listing_id: params[:id]
     end
     redirect_to "/listings"
   end
