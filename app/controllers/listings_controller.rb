@@ -18,6 +18,7 @@ class ListingsController < ApplicationController
       return redirect_to "/users/sign_in"
     end
     @categories = Category.all
+    @listing = Listing.new
   end
 
   def create
@@ -27,6 +28,7 @@ class ListingsController < ApplicationController
     end
     begin
       Listing.create title: params[:title], category_id: params[:category_id], description: params[:description], price: params[:price], user_id: @current_user.id
+      Listing.last.attached_picture.attach(params[:attached_picture])
       redirect_to "/listings"
     rescue Exception => e
       redirect_to request.referrer || root_path
@@ -35,6 +37,11 @@ class ListingsController < ApplicationController
 
   def delete
     Listing.find(params[:id]).destroy
+    redirect_to "/listings"
+  end
+
+  def update
+    Listing.find(params[:id]).update title: params[:title], category_id: params[:category_id], description: params[:description], price: params[:price], user_id: params[:user]
     redirect_to "/listings"
   end
 

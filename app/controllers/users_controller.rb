@@ -67,4 +67,9 @@ class UsersController < ApplicationController
     end
   end
 
+  def delete
+    User.find(params[:id]).destroy
+    redirect_to "/"
+  end
+
 end
