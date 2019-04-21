@@ -1,8 +1,22 @@
-<h1>Connexion</h1>
-<a href="/">Retourner à l'accueil</a>
+<div class="container">
+  <h1 class="navbartext">Connexion</h1>
+  <a class="btn btn-link" href="/">Retourner à l'accueil</a>
+
+  <ul class="list-group">
 <%= form_tag "/users/sign_in", method: :post do %>
-  <input type="email" name="email" />
-  <input type="password" name="password" />
-  <input type="submit" value="Se connecter" />
+      <li>
+        <input type="email" name="email" />
+      </li>
+      <li>
+        <input type="password" name="password" />
+      </li>
+      <li>
+        <input class="btn btn-success" type="submit" value="Se connecter" />
+      </li>
+
 <% end %>
-<a href="/users/sign_up">Sign up</a>
+    <li>
+      <a class="btn btn-primary" href="/users/sign_up">Sign up</a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,33 @@
+@import "bootstrap";
+div.inline {float: left;}
+input.inline {float: left;}
+.clearBoth {clear: both;}
+
+input:invalid {
+    border: 1px solid red;
+}
+
+input:valid {
+    border: 1px solid black;
+}
+
+.navbartext{
+  color: #FFFFFF;
+}
+
+.majuscule{
+  font-size: x-large;
+}
+
+.navbar-brand{
+  color: #FFFFFF !important;;
+}
+
+body {
+  background: url("earth.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
