@@ -1,7 +1,15 @@
 class ListingsController < ApplicationController
   def index
-    @listings = Listing.page(params[:page]).per(10)
     @categories = Category.all
+    if params[:search_tag] and params[:category]
+      @listings = Listing.where(["title LIKE ? and category_id = ?", "%#{params[:search_tag]}%", "#{params[:category]}"])
+    elsif params[:search_tag]
+      @listings = Listing.where("title LIKE ?", "%#{params[:search_tag]}%")
+    elsif params[:category]
+      @listings = Listing.where("category_id = ?", "#{params[:category]}")
+    else
+      @listings = Listing.all
+    end
   end
 
   def contact
@@ -36,6 +44,7 @@ class ListingsController < ApplicationController
   end
 
   def delete
+    Message.where(:listing_id => params[:id]).destroy_all
     Listing.find(params[:id]).destroy
     redirect_to "/listings"
   end

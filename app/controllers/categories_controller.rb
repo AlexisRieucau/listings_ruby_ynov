@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   def delete
+    Listing.where(:category_id => params[:id]).destroy_all
     Category.find(params[:id]).destroy
     redirect_to "/"
   end
