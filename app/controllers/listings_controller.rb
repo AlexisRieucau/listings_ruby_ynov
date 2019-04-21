@@ -1,6 +1,7 @@
 class ListingsController < ApplicationController
   def index
     @categories = Category.all
+    @search_tag = params[:search_tag]
     if params[:search_tag] and params[:category]
       @listings = Listing.where(["title LIKE ? and category_id = ?", "%#{params[:search_tag]}%", "#{params[:category]}"])
     elsif params[:search_tag]
