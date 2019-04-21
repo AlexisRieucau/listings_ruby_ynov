@@ -1,5 +1,8 @@
 <% @listings.each do |listing| %>
   <p>
+    <% if listing.attached_picture.attached? %>
+      <img src="<%= url_for(listing.attached_picture) %>" alt="image" size="70" height="70">
+    <% end %>
     <b><%= listing.title %> </b>(<%= listing.category.name %>) <br/>
     <i><%= localize(listing.created_at, :format => :long) %></i> <br/>
     <%= listing.description %> <br/>
