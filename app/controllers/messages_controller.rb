@@ -14,4 +14,16 @@ class MessagesController < ApplicationController
     end
     @messages = Message.page(params[:page]).per(10)
   end
+
+  def update
+    @message = Message.find(params[:id])
+    if @message.update content: params[:contenu], user_ven_id: params[:user_ven], user_ach_id: params[:id], listing_id: params[:listing]
+      redirect_to "/messages"
+    end
+  end
+
+  def delete
+    Message.find(params[:id]).destroy
+    redirect_to "/messages"
+  end
 end
