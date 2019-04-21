@@ -41,17 +41,29 @@ class UsersController < ApplicationController
   end
 
   def contacts
+    if !@current_user
+      return redirect_to "/users/sign_in"
+    end
     @msg = Message.where(user_ven_id: @current_user.id)
   end
 
   def messages
+    if !@current_user
+      return redirect_to "/users/sign_in"
+    end
     @msg = Message.where(user_ach_id: @current_user.id)
   end
 
   def profile
+    if !@current_user
+      return redirect_to "/users/sign_in"
+    end
   end
 
   def update
+    if !@current_user
+      return redirect_to "/users/sign_in"
+    end
     @user = User.find(@current_user.id)
     if @user.update first_name: params[:first_name], last_name: params[:last_name], email: params[:email]
         redirect_to '/account/user'
@@ -59,6 +71,9 @@ class UsersController < ApplicationController
   end
 
   def updatepwd
+    if !@current_user
+      return redirect_to "/users/sign_in"
+    end
     @user = User.find(@current_user.id)
     if params[:password] == params[:password_conf]
       if @user.update password: params[:password]
@@ -68,6 +83,9 @@ class UsersController < ApplicationController
   end
 
   def delete
+    if !@current_user.try(:admin?)
+      return redirect_to "/users/sign_in"
+    end
     User.find(params[:id]).destroy
     redirect_to "/"
   end

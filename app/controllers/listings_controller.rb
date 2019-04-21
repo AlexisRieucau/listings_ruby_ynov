@@ -15,7 +15,6 @@ class ListingsController < ApplicationController
 
   def contact
     if !@current_user
-      flash[:error] = "Accès interdit"
       return redirect_to "/users/sign_in"
     end
     @listing_msg = Listing.find(params[:id])
@@ -23,7 +22,6 @@ class ListingsController < ApplicationController
 
   def show
     if !@current_user
-      flash[:error] = "Accès interdit"
       return redirect_to "/users/sign_in"
     end
     @categories = Category.all
@@ -32,7 +30,6 @@ class ListingsController < ApplicationController
 
   def create
     if !@current_user
-      flash[:error] = "Accès interdit"
       return redirect_to "/users/sign_in"
     end
     begin
@@ -45,12 +42,18 @@ class ListingsController < ApplicationController
   end
 
   def delete
+    if !@current_user.try(:admin?)
+      return redirect_to "/users/sign_in"
+    end
     Message.where(:listing_id => params[:id]).destroy_all
     Listing.find(params[:id]).destroy
     redirect_to "/listings"
   end
 
   def update
+    if !@current_user.try(:admin?)
+      return redirect_to "/users/sign_in"
+    end
     Listing.find(params[:id]).update title: params[:title], category_id: params[:category_id], description: params[:description], price: params[:price], user_id: params[:user]
     redirect_to "/listings"
   end

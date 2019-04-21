@@ -1,5 +1,8 @@
 class MessagesController < ApplicationController
   def create
+    if !@current_user
+      return redirect_to "/users/sign_in"
+    end
     listing = Listing.find(params[:id])
     if params[:contenu].present?
       Message.create! content: params[:contenu], user_ven_id: listing.user.id, user_ach_id: @current_user.id, listing_id: params[:id]
@@ -9,13 +12,16 @@ class MessagesController < ApplicationController
   end
 
   def show
-    if !@current_user.try(:admin?)
+    if !@current_user
       return redirect_to "/users/sign_in"
     end
     @messages = Message.page(params[:page]).per(10)
   end
 
   def update
+    if !@current_user.try(:admin?)
+      return redirect_to "/users/sign_in"
+    end
     @message = Message.find(params[:id])
     if @message.update content: params[:contenu], user_ven_id: params[:user_ven], user_ach_id: params[:id], listing_id: params[:listing]
       redirect_to "/messages"
@@ -23,6 +29,9 @@ class MessagesController < ApplicationController
   end
 
   def delete
+    if !@current_user.try(:admin?)
+      return redirect_to "/users/sign_in"
+    end
     Message.find(params[:id]).destroy
     redirect_to "/messages"
   end
