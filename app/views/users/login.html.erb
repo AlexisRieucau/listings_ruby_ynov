@@ -1,22 +1,15 @@
 <div class="container">
+  <div class="card border-0 shadow my-5">
+    <div class="card-body p-5">
   <h1 class="navbartext">Connexion</h1>
-  <a class="btn btn-link" href="/">Retourner à l'accueil</a>
-
-  <ul class="list-group">
+  <a class="btn btn-link" href="/">Retourner à l'accueil</a><br/>
 <%= form_tag "/users/sign_in", method: :post do %>
-      <li>
-        <input type="email" name="email" />
-      </li>
-      <li>
-        <input type="password" name="password" />
-      </li>
-      <li>
+        <input type="email" name="email" /><br/>
+        <input type="password" name="password" /><br/>
         <input class="btn btn-success" type="submit" value="Se connecter" />
-      </li>
-
 <% end %>
-    <li>
       <a class="btn btn-primary" href="/users/sign_up">Sign up</a>
-    </li>
-  </ul>
+
+    </div>
+  </div>
 </div>
