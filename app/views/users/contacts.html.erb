@@ -5,23 +5,30 @@
 </div>
 
 
-<table style="width:75%" align="center">
-  <tr>
-    <th>Image</th>
-    <th>Prix</th>
-    <th>Date</th>
-    <th>Message</th>
-  </tr>
-  <% @msg.each do |m| %>
-    <tr>
-      <td>
-        <% if m.listing.attached_picture.attached? %>
-          <img src="<%= url_for(m.listing.attached_picture) %>" alt="image" size="70" height="70" align="center">
+<div class="container">
+  <div class="card border-0 shadow my-5">
+    <div class="card-body p-5">
+      <table style="width:75%" align="center">
+        <tr>
+          <th>Image</th>
+          <th>Prix</th>
+          <th>Date</th>
+          <th>Message</th>
+        </tr>
+        <% @msg.each do |m| %>
+          <tr>
+            <td>
+              <% if m.listing.attached_picture.attached? %>
+                <img src="<%= url_for(m.listing.attached_picture) %>" alt="image" size="70" height="70" align="center">
+              <% end %>
+            </td>
+            <td><%= m.listing.price %></td>
+            <td><%= m.created_at %></td>
+            <td><%= m.content %></td>
+          </tr>
         <% end %>
-      </td>
-      <td><%= m.listing.price %></td>
-      <td><%= m.created_at %></td>
-      <td><%= m.content %></td>
-    </tr>
-  <% end %>
-</table>
+      </table>
+
+    </div>
+  </div>
+</div>
