@@ -1,0 +1,65 @@
+fr:
+  time:
+    formats:
+      long: "%Y-%m-%d %H:%M"
+  layouts:
+    application:
+      welcome_msg: "Bienvenue"
+      anonyme: "Bienvenue visiteur anonyme"
+      logout: "Se deconnecter"
+      my_account: "Mon compte"
+      create_listing: "Creer mon annonce"
+      login: "Connexion"
+      langue: "Langue"
+      fr: "Français"
+      en: "Anglais"
+  listings:
+    index:
+      delete: "Supprimer"
+      contact: "Contact"
+    contact:
+      send: "Envoyer"
+    show:
+      title: "Titre"
+      category: "Categorie"
+      description: "Description"
+      picture: "Image"
+      price: "Prix"
+      save: "Sauvegarder"
+      toList: "Revenir à la liste"
+  messages:
+    show:
+      nul: "nul"
+  users:
+    my_contacts: "Mes contacts"
+    my_messages: "Mes messages"
+    my_profile: "Mon profil"
+    image: "Image"
+    price: "Prix"
+    date: "Date"
+    message: "Message"
+    profile:
+      email: "Email"
+      f_name: "Prénom"
+      l_name: "Nom"
+      password1: "Mot de passe (6 caractères minimum)"
+      password2: "Confirmation du mot de passe"
+      save: "Sauvegarder"
+    home:
+      recherche: "Que cherchez-vous ?"
+      to_list: "Rechercher"
+    login:
+      log: "Se connecter"
+      email: "Email"
+      password: "Mot de passe"
+      login: "Connexion"
+      signup: "Créer un compte"
+    signup:
+      sign: "Créer un compte"
+      email: "Email"
+      f_name: "Prénom"
+      l_name: "Nom"
+      password1: "Mot de passe (6 caractères minimum)"
+      password2: "Confirmation du mot de passe"
+      signup: "Créer le compte"
+      login: "Se connecter"

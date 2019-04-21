@@ -1,7 +1,7 @@
 <div class="container ml-auto">
-  <a class="btn btn-info" href="/account/contacts">Mes contacts</a>
-  <a class="btn btn-info" href="/account/messages">Mes messages</a>&nbsp;
-  <a class="btn btn-info" href="/account/user">Mon profil</a>
+  <a class="btn btn-info" href="/<%= I18n.locale %>/account/contacts"><%= t("users.my_contacts") %></a>
+  <a class="btn btn-info" href="/<%= I18n.locale %>/account/messages"><%= t("users.my_messages") %></a>&nbsp;
+  <a class="btn btn-info" href="/<%= I18n.locale %>/account/user"><%= t("users.my_profile") %></a>
 </div>
 
 <div class="container">
@@ -9,10 +9,10 @@
     <div class="card-body p-5">
 <table style="width:75%" align="center">
   <tr>
-    <th>Image</th>
-    <th>Prix</th>
-    <th>Date</th>
-    <th>Message</th>
+    <th><%= t("users.image") %></th>
+    <th><%= t("users.price") %></th>
+    <th><%= t("users.date") %></th>
+    <th><%= t("users.message") %></th>
   </tr>
   <% @msg.each do |m| %>
     <tr>

@@ -1,19 +1,16 @@
 <div class="container">
   <div class="card border-0 shadow my-5">
     <div class="card-body p-5">
-      <h1>Inscription</h1>
-      <a class="btn btn-primary" href="/">Retourner à l'accueil</a>
-      <%= form_tag "/users/sign_up", method: "post" do %>
-        <input type="email" name="email" placeholder="email" required/><br/>
-        <input type="text" name="first_name" placeholder="First Name" required/><br/>
-        <input type="text" name="last_name" placeholder="Last Name" required/><br/>
-        <input type="password" name="password" minlength="6" placeholder="Password" required/>
-        <label for="password">(6 characters minimum)</label><br/>
-        <input type="password" name="password_conf" minlength="6" placeholder="Password" required/>
-        <label for="password_conf">Password confirmation</label><br/>
-        <input class="btn btn-dark" type="submit" value="Sign up" />
+      <h1><%= t("users.signup.sign") %></h1>
+      <%= form_tag "/#{I18n.locale}/users/sign_up", method: "post" do %>
+        <input type="email" name="email" placeholder=<%= t("users.signup.email") %> required><br/>
+        <input type="text" name="first_name" placeholder=<%= t("users.signup.f_name") %> required><br/>
+        <input type="text" name="last_name" placeholder=<%= t("users.signup.l_name") %> required><br/>
+        <input type="password" name="password" minlength="6" placeholder="<%= t("users.signup.password1") %>" required><br/>
+        <input type="password" name="password_conf" minlength="6" placeholder="<%= t("users.signup.password2") %>" required><br/>
+        <input class="btn btn-dark" type="submit" value=<%= t("users.signup.signup") %> >
       <% end %>
-      <a class="btn btn-primary" href="/users/sign_in">Log in</a>
+      <a class="btn btn-primary" href="/<%= I18n.locale %>/users/sign_in"><%= t("users.signup.login") %></a>
     </div>
   </div>
 </div>
