@@ -1,0 +1,31 @@
+<a href="/account/contacts">Mes contacts</a>
+<a href="/account/messages">Mes messages</a>&nbsp;
+<a href="/account/user">Mon profil</a>
+
+<%= form_tag "/account/user", method: "patch" do %>
+  <p>
+    <label for="email">Email</label>
+    <input type="email" name="email" value="<%= @current_user.email %>" required/>
+  </p>
+  <p>
+    <label for="first_name">First name</label>
+    <input type="text" name="first_name" value="<%= @current_user.first_name %>" required/>
+  </p>
+  <p>
+    <label for="last_name">Last name</label>
+    <input type="text" name="last_name" value="<%= @current_user.last_name %>" required/>
+  </p>
+  <input type="submit" value="Save" />
+<% end %>
+
+<%= form_tag "/account/user/pwd", method: "patch" do %>
+  <p>
+    <label for="password">Password (6 characters minimum)</label>
+    <input type="password" name="password" minlength="6" required/>
+  </p>
+  <p>
+    <label for="password_conf">Password confirmation</label>
+    <input type="password" name="password_conf" minlength="6" required/>
+  </p>
+  <input type="submit" value="Save" />
+<% end %>

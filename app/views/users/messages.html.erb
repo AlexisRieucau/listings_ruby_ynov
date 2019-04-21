@@ -1,0 +1,17 @@
+<a href="/account/contacts">Mes contacts</a>&nbsp;<a href="/account/messages">Mes messages</a>&nbsp;<a href="/account/user">Mon profil</a>
+<table style="width:75%" align="center">
+  <tr>
+    <th>Image</th>
+    <th>Prix</th>
+    <th>Date</th>
+    <th>Message</th>
+  </tr>
+  <% @msg.each do |m| %>
+    <tr>
+      <td>photo</td>
+      <td><%= m.listing.price %></td>
+      <td><%= m.created_at %></td>
+      <td><%= m.content %></td>
+    </tr>
+  <% end %>
+</table>

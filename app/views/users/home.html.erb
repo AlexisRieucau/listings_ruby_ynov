@@ -1,13 +1,18 @@
-<% if @current_user %>
-  <% if @current_user.role == "admin" %>
-    <h1>Bienvenue administrateur <%= @current_user.first_name %> !</h1>
-  <% else %>
-    <h1>Bienvenue <%= @current_user.first_name %> !</h1>
-  <% end %>
-  <%= form_tag "/users/login", method: :delete do %>
-    <input type="submit" value="Déconnexion" />
-  <% end %>
-<% else %>
-  <h1>Bienvenue visiteur anonyme !</h1>
-  <a href="/users/login">S'identifier</a>
-<% end %>
+<div class="container vertical-center">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col">
+      <input class="form-control my-auto" type="text" placeholder="Search" aria-label="Search">
+    </div>
+    <div class="col">
+      <a class="btn btn-success navbartext" href="/listings">Vers la liste</a>
+    </div>
+  </div>
+</div>

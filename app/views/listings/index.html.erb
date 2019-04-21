@@ -1,9 +1,15 @@
 <% @listings.each do |listing| %>
   <p>
-    <a href="/listings/<%= listing.id %>">
-      <%= listing.title %> (<%= listing.category.name %>)
-    </a>
-    <%= link_to('contact'.html_safe, "/listings/contact/#{listing.id}", 'data-popup' => true, :class => "button_class", :onclick => "windows.open(this.href,'contact', 'height=800, width=500'); return false") %><br>
+    <b><%= listing.title %> </b>(<%= listing.category.name %>) <br/>
+    <i><%= localize(listing.created_at, :format => :long) %></i> <br/>
+    <%= listing.description %> <br/>
+    <%= listing.price %> €
+    <%= link_to('contact'.html_safe, "/listings/contact/#{listing.id}", 'data-popup' => true, :class => "button_class", :onclick => "windows.open(this.href,'contact', 'height=800, width=500'); return false") %>
+    &nbsp;&nbsp;&nbsp;
+    <%= form_tag "/listings/new/#{listing.id}", method: "delete" do %>
+      <input type="submit" value="Delete" />
+    <% end %>
+    <br/>
   </p>
 <% end %>
 <%= paginate @listings %>

@@ -43,7 +43,6 @@
     <index id="16" parent="6" name="sqlite_autoindex_ar_internal_metadata_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>key</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="17" parent="6">
@@ -67,7 +66,6 @@
     </column>
     <index id="21" parent="7" name="index_books_on_category_id">
       <ColNames>category_id</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <key id="22" parent="7">
       <ColNames>id</ColNames>
@@ -95,7 +93,6 @@
     <index id="27" parent="9" name="sqlite_autoindex_schema_migrations_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>version</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="28" parent="9">

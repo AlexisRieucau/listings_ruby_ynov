@@ -1,15 +1,16 @@
 class MessagesController < ApplicationController
   def create
-    if params[:message].present?
-      Message.create content: params[:message], user_ven_id: 1, user_ach_id: 1, listing_id: params[:id]
+    listing = Listing.find(params[:id])
+    if params[:contenu].present?
+      Message.create! content: params[:contenu], user_ven_id: listing.user.id, user_ach_id: @current_user.id, listing_id: params[:id]
+      ContactMailer.contact(params[:contenu]).deliver_now
     end
     redirect_to "/listings"
   end
 
   def show
     if !@current_user.try(:admin?)
-      flash[:error] = "Accès interdit"
-      return redirect_to "/users/login"
+      return redirect_to "/users/sign_in"
     end
     @messages = Message.page(params[:page]).per(10)
   end

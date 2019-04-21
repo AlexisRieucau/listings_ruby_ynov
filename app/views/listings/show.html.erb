@@ -1,6 +1,25 @@
-<h1><%= @listing.title %></h1>
-<h2><%= @listing.category_id %></h2>
-<h2><%= @listing.description %></h2>
-<h2><%= @listing.price %></h2>
-<p><a href="/listings">Retourner à l'index</a></p>
-
+<%= form_tag "/listings/new", method: "post" do %>
+  <p>
+    <label for="title">Title*</label>
+    <input type="text" name="title" maxlength="255" required/>
+  </p>
+  <p>
+    <label for="category_id">Category*</label>
+    <select name="category_id" required>
+      <% @categories.each do |category| %>
+      <option value="<%= category.id %>"><%= category.name %></option>
+    <% end %>
+    </select>
+  </p>
+  <p>
+    <label for="description">Description*</label>
+    <input type="text" name="description" required/>
+  </p>
+  <!-- inserer image -->
+  <p>
+    <label for="price">Price*</label>
+    <input type="number" name="price" required/>
+  </p>
+  <input type="submit" value="Save" />
+<% end %>
+<p><a href="/listings">Retourner à la liste</a></p>
