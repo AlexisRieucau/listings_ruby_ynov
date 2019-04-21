@@ -5,15 +5,15 @@
     <div class="col">
     </div>
   </div>
-  <%= form_tag "/listings", method: :get do %>
+  <%= form_tag "/#{I18n.locale}/listings", method: :get do %>
   <div class="row">
     <div class="col">
     </div>
       <div class="col">
-        <input class="form-control my-auto" type="text" placeholder="Search" aria-label="Search" name="search_tag">
+        <input class="form-control my-auto" type="text" placeholder=<%= t("users.home.recherche") %> aria-label="Search" name="search_tag">
       </div>
     <div class="col">
-      <input class="btn btn-success navbartext" type="submit" value="Vers la liste" />
+      <input class="btn btn-success navbartext" type="submit" value=<%= t("users.home.to_list") %> >
     </div>
   </div>
   <% end %>

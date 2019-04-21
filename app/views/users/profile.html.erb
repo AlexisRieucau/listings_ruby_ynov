@@ -1,29 +1,28 @@
 <div class="container ml-auto">
-<a class="btn btn-info" href="/account/contacts">Mes contacts</a>
-<a class="btn btn-info" href="/account/messages">Mes messages</a>&nbsp;
-<a class="btn btn-info" href="/account/user">Mon profil</a>
+<a class="btn btn-info" href="/<%= I18n.locale %>/account/contacts"><%= t("users.my_contacts") %></a>
+<a class="btn btn-info" href="/<%= I18n.locale %>/account/messages"><%= t("users.my_messages") %></a>&nbsp;
+<a class="btn btn-info" href="/<%= I18n.locale %>/account/user"><%= t("users.my_profile") %></a>
 </div>
 
 <div class="container">
   <div class="card border-0 shadow my-5">
     <div class="card-body p-5">
 <%= form_tag "/account/user", method: "patch" do %>
-  <label for="email">Email :</label>
-  <input type="email" name="email" value="<%= @current_user.email %>" required/><br/>
-  <label for="first_name">First name :</label>
-  <input type="text" name="first_name" value="<%= @current_user.first_name %>" required/><br/>
-  <label for="last_name">Last name :</label>
-  <input type="text" name="last_name" value="<%= @current_user.last_name %>" required/><br/>
-  <input class="btn btn-dark" type="submit" value="Save" /><br/>
+  <label for="email"><%= t("users.profile.email") %> :</label>
+  <input type="email" name="email" value="<%= @current_user.email %>" required><br/>
+  <label for="first_name"><%= t("users.profile.f_name") %> :</label>
+  <input type="text" name="first_name" value="<%= @current_user.first_name %>" required><br/>
+  <label for="last_name"><%= t("users.profile.l_name") %> :</label>
+  <input type="text" name="last_name" value="<%= @current_user.last_name %>" required><br/>
+  <input class="btn btn-dark" type="submit" value=<%= t("users.profile.save") %> ><br/>
 <% end %>
 
 <%= form_tag "/account/user/pwd", method: "patch" do %>
-  <label for="password">Password (6 characters minimum)</label>
-  <input type="password" name="password" minlength="6" required/>
-  <input type="password" name="password_conf" minlength="6" placeholder="Password" required/><br/>
-  <label for="password_conf">Password confirmation</label>
-  <input type="password" name="password_conf" minlength="6" required/><br/>
-  <input class="btn btn-dark" type="submit" value="Save" /><br/>
+  <label for="password"><%= t("users.profile.password1") %></label>
+  <input type="password" name="password" minlength="6" placeholder="Password" required>
+  <label for="password_conf"><%= t("users.profile.password2") %></label>
+  <input type="password" name="password_conf" minlength="6" required><br/>
+  <input class="btn btn-dark" type="submit" value=<%= t("users.profile.save") %> ><br/>
 <% end %>
 
 

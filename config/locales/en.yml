@@ -30,4 +30,67 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  time:
+    formats:
+      long: "%Y-%m-%d %H:%M"
+  layouts:
+    application:
+      welcome_msg: "Welcome"
+      anonyme: "Welcome anonymous"
+      logout: "Logout"
+      my_account: "My account"
+      create_listing: "Create my listing"
+      login: "Login"
+      langue: "Language"
+      fr: "French"
+      en: "English"
+  listings:
+    index:
+      delete: "Delete"
+      contact: "Contact"
+    contact:
+      send: "Send"
+    show:
+      title: "Title"
+      category: "Category"
+      description: "Description"
+      picture: "Picture"
+      price: "Price"
+      save: "Save"
+      toList: "Return to list"
+  messages:
+    show:
+      nul: "nul"
+  users:
+    my_contacts: "My contacts"
+    my_messages: "My messages"
+    my_profile: "My profile"
+    image: "Image"
+    price: "Price"
+    date: "Date"
+    message: "Message"
+    profile:
+      email: "Email"
+      f_name: "First name"
+      l_name: "Last name"
+      password1: "Password (6 characters minimum)"
+      password2: "Password confirmation"
+      save: "Save"
+    home:
+      recherche: "What are you searching for ?"
+      to_list: "Search"
+    login:
+      log: "Login"
+      email: "Email"
+      password: "Password"
+      login: "Login"
+      signup: "Sign up"
+    signup:
+      sign: "Sign up"
+      email: "Email"
+      f_name: "First name"
+      l_name: "Last name"
+      password1: "Password (6 characters minimum)"
+      password2: "Password confirmation"
+      signup: "Sign up"
+      login: "Login"

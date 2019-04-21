@@ -15,14 +15,14 @@ class ListingsController < ApplicationController
 
   def contact
     if !@current_user
-      return redirect_to "/users/sign_in"
+      return redirect_to "/#{I18n.locale}/users/sign_in"
     end
     @listing_msg = Listing.find(params[:id])
   end
 
   def show
     if !@current_user
-      return redirect_to "/users/sign_in"
+      return redirect_to "/#{I18n.locale}/users/sign_in"
     end
     @categories = Category.all
     @listing = Listing.new
@@ -30,12 +30,12 @@ class ListingsController < ApplicationController
 
   def create
     if !@current_user
-      return redirect_to "/users/sign_in"
+      return redirect_to "/#{I18n.locale}/users/sign_in"
     end
     begin
       Listing.create title: params[:title], category_id: params[:category_id], description: params[:description], price: params[:price], user_id: @current_user.id
       Listing.last.attached_picture.attach(params[:attached_picture])
-      redirect_to "/listings"
+      redirect_to "/#{I18n.locale}/listings"
     rescue Exception => e
       redirect_to request.referrer || root_path
     end
@@ -43,19 +43,19 @@ class ListingsController < ApplicationController
 
   def delete
     if !@current_user.try(:admin?)
-      return redirect_to "/users/sign_in"
+      return redirect_to "/#{I18n.locale}/users/sign_in"
     end
     Message.where(:listing_id => params[:id]).destroy_all
     Listing.find(params[:id]).destroy
-    redirect_to "/listings"
+    redirect_to "/#{I18n.locale}/listings"
   end
 
   def update
     if !@current_user.try(:admin?)
-      return redirect_to "/users/sign_in"
+      return redirect_to "/#{I18n.locale}/users/sign_in"
     end
     Listing.find(params[:id]).update title: params[:title], category_id: params[:category_id], description: params[:description], price: params[:price], user_id: params[:user]
-    redirect_to "/listings"
+    redirect_to "/#{I18n.locale}/listings"
   end
 
 end
