@@ -5,14 +5,16 @@
     <div class="col">
     </div>
   </div>
+  <%= form_tag "/listings", method: :get do %>
   <div class="row">
     <div class="col">
     </div>
+      <div class="col">
+        <input class="form-control my-auto" type="text" placeholder="Search" aria-label="Search" name="search_tag">
+      </div>
     <div class="col">
-      <input class="form-control my-auto" type="text" placeholder="Search" aria-label="Search">
-    </div>
-    <div class="col">
-      <a class="btn btn-success navbartext" href="/listings">Vers la liste</a>
+      <input class="btn btn-success navbartext" type="submit" value="Vers la liste" />
     </div>
   </div>
+  <% end %>
 </div>

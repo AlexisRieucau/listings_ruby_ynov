@@ -3,7 +3,7 @@
     <% if listing.attached_picture.attached? %>
       <img src="<%= url_for(listing.attached_picture) %>" alt="image" size="70" height="70">
     <% end %>
-    <b><%= listing.title %> </b>(<%= listing.category.name %>) <br/>
+    <b><%= listing.title %> </b>(<%= link_to listing.category.name, url_for(action: 'index', controller: 'listings', category: listing.category.id) %>) <br/>
     <i><%= localize(listing.created_at, :format => :long) %></i> <br/>
     <%= listing.description %> <br/>
     <%= listing.price %> €
@@ -15,4 +15,3 @@
     <br/>
   </p>
 <% end %>
-<%= paginate @listings %>
