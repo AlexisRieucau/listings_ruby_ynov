@@ -1,10 +1,14 @@
-<%= form_tag "/listings/new", method: "post", :multipart=>true do %>
+<div class="container">
+  <div class="card border-0 shadow my-5">
+    <div class="card-body p-5">
+      <a class="btn btn-primary" href="/listings">Retourner à la liste</a>
+      <%= form_tag "/listings/new", method: "post", :multipart=>true do %>
   <p>
-    <label for="title">Title*</label>
+    <label for="title">Title* : </label>
     <input type="text" name="title" maxlength="255" required/>
   </p>
   <p>
-    <label for="category_id">Category*</label>
+    <label for="category_id">Category* : </label>
     <select name="category_id" required>
       <% @categories.each do |category| %>
       <option value="<%= category.id %>"><%= category.name %></option>
@@ -12,7 +16,7 @@
     </select>
   </p>
   <p>
-    <label for="description">Description*</label>
+    <label for="description">Description* : </label>
     <input type="text" name="description" required/>
   </p>
   <p>
@@ -20,9 +24,13 @@
     <%= file_field_tag :attached_picture %>
   </p>
   <p>
-    <label for="price">Price*</label>
+    <label for="price">Price* : </label>
     <input type="number" name="price" required/>
   </p>
-  <input type="submit" value="Save" />
+  <input class="btn btn-dark"  type="submit" value="Save" />
 <% end %>
-<p><a href="/listings">Retourner à la liste</a></p>
+
+
+    </div>
+  </div>
+</div>

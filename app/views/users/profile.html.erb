@@ -1,31 +1,32 @@
-<a href="/account/contacts">Mes contacts</a>
-<a href="/account/messages">Mes messages</a>&nbsp;
-<a href="/account/user">Mon profil</a>
+<div class="container ml-auto">
+<a class="btn btn-info" href="/account/contacts">Mes contacts</a>
+<a class="btn btn-info" href="/account/messages">Mes messages</a>&nbsp;
+<a class="btn btn-info" href="/account/user">Mon profil</a>
+</div>
 
+<div class="container">
+  <div class="card border-0 shadow my-5">
+    <div class="card-body p-5">
 <%= form_tag "/account/user", method: "patch" do %>
-  <p>
-    <label for="email">Email</label>
-    <input type="email" name="email" value="<%= @current_user.email %>" required/>
-  </p>
-  <p>
-    <label for="first_name">First name</label>
-    <input type="text" name="first_name" value="<%= @current_user.first_name %>" required/>
-  </p>
-  <p>
-    <label for="last_name">Last name</label>
-    <input type="text" name="last_name" value="<%= @current_user.last_name %>" required/>
-  </p>
-  <input type="submit" value="Save" />
+  <label for="email">Email :</label>
+  <input type="email" name="email" value="<%= @current_user.email %>" required/><br/>
+  <label for="first_name">First name :</label>
+  <input type="text" name="first_name" value="<%= @current_user.first_name %>" required/><br/>
+  <label for="last_name">Last name :</label>
+  <input type="text" name="last_name" value="<%= @current_user.last_name %>" required/><br/>
+  <input class="btn btn-dark" type="submit" value="Save" /><br/>
 <% end %>
 
 <%= form_tag "/account/user/pwd", method: "patch" do %>
-  <p>
-    <label for="password">Password (6 characters minimum)</label>
-    <input type="password" name="password" minlength="6" required/>
-  </p>
-  <p>
-    <label for="password_conf">Password confirmation</label>
-    <input type="password" name="password_conf" minlength="6" required/>
-  </p>
-  <input type="submit" value="Save" />
+  <label for="password">Password (6 characters minimum)</label>
+  <input type="password" name="password" minlength="6" required/>
+  <input type="password" name="password_conf" minlength="6" placeholder="Password" required/><br/>
+  <label for="password_conf">Password confirmation</label>
+  <input type="password" name="password_conf" minlength="6" required/><br/>
+  <input class="btn btn-dark" type="submit" value="Save" /><br/>
 <% end %>
+
+
+    </div>
+  </div>
+</div>

@@ -1,8 +1,8 @@
 <div class="container">
   <div class="card border-0 shadow my-5">
     <div class="card-body p-5">
-  <h1 class="navbartext">Connexion</h1>
-  <a class="btn btn-link" href="/">Retourner à l'accueil</a><br/>
+  <h1>Connexion</h1>
+  <a class="btn btn-primary" href="/">Retourner à l'accueil</a><br/>
 <%= form_tag "/users/sign_in", method: :post do %>
         <input type="email" name="email" /><br/>
         <input type="password" name="password" /><br/>
