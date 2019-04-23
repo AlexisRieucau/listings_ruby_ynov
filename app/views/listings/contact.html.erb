@@ -1,4 +1,10 @@
-<%= form_tag "/#{I18n.locale}/messages/#{@listing_msg.id}", method: "post" do %>
+<div class="container">
+  <div class="card border-0 shadow my-5">
+    <div class="card-body p-5">
+      <%= form_tag "/#{I18n.locale}/messages/#{@listing_msg.id}", method: "post" do %>
   <input type="text" name="contenu">
   <input type="submit" value=<%= t("listings.contact.send") %>>
 <% end %>
+    </div>
+  </div>
+</div>

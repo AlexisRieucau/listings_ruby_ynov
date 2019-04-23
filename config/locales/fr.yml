@@ -6,9 +6,9 @@ fr:
     application:
       welcome_msg: "Bienvenue"
       anonyme: "Bienvenue visiteur anonyme"
-      logout: "Se deconnecter"
+      logout: "Se déconnecter"
       my_account: "Mon compte"
-      create_listing: "Creer mon annonce"
+      create_listing: "Créer mon annonce"
       login: "Connexion"
       langue: "Langue"
       fr: "Français"
@@ -21,7 +21,7 @@ fr:
       send: "Envoyer"
     show:
       title: "Titre"
-      category: "Categorie"
+      category: "Catégories"
       description: "Description"
       picture: "Image"
       price: "Prix"
