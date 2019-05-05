@@ -70,3 +70,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "aws-sdk-s3", require: false
 
 gem 'kaminari'
+
+gem 'grape'
+gem 'rack-cors', :require => 'rack/cors'
+gem 'grape-active_model_serializers'
+gem 'grape-swagger'
+gem 'grape-swagger-rails'
