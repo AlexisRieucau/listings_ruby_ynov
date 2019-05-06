@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   mount API::Base, at: "/"
-  mount GrapeSwaggerRails::Engine, at: "/documentation"
+  mount GrapeSwaggerRails::Engine => "/documentation"
   scope "(:locale)" do
     #resources :messages, :users, :categories, :listings, :application
     root to: 'users#home'
