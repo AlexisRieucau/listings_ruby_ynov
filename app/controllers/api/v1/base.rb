@@ -7,6 +7,7 @@ module API
       mount API::V1::Categories
       mount API::V1::Users
       mount API::V1::Messages
+      mount API::V1::Auth
 
       add_swagger_documentation(
           api_version: "v1",
